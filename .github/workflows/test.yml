@@ -20,7 +20,9 @@ jobs:
           architecture: 'x64'
           
       - name: Install dependencies
-        run: pip install --upgrade pip
+        run: |
+          pip install --upgrade pip
+          brew install gettext
     
       - name: Run tests
         run: python -m unittest pickle_test
