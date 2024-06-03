@@ -22,8 +22,9 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          brew install gettext
-    
+          if [ "${{runner.os}}" == "macOS" ]; then
+            brew install gettext
+          fi
       - name: Run tests
         run: python -m unittest pickle_test
             
