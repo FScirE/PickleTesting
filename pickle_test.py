@@ -118,5 +118,5 @@ def fibonacci(n):
 
 
 if __name__=='__main__':
-    os.makedirs(f'.{os.sep}' + get_os_suffix() + '_data', exist_ok=True)
+    os.makedirs(get_os_suffix() + '_data', exist_ok=True)
     unittest.main()
