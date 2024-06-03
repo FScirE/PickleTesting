@@ -6,7 +6,8 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        #os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [macos-latest]
         #python-version: ['pypy3.9', '3.9', '3.10']
     
     steps:
@@ -20,11 +21,11 @@ jobs:
           architecture: 'x64'
           
       - name: Install dependencies
-        run: |
+        run: |         
+          brew install gettext
+          brew link gettext --force
           pip install --upgrade pip
-          if [ "${{runner.os}}" == "macOS" ]; then
-            brew install gettext
-          fi
+    
       - name: Run tests
         run: python -m unittest pickle_test
             
