@@ -22,13 +22,30 @@ jobs:
       - name: Install dependencies
         run: |         
           pip install --upgrade pip
+
       - name: Run tests
         run: |
           python -m unittest pickle_test
-          git config user.name 'github-actions'
-          git config user.email 'github-actions@github.com'
-          git pull
-          git add *.pkl
-          git commit -am "Generated files"
-          git push
+          
+      - name: Upload test artifacts
+        uses: actions/upload-artifacts@v2
+        with:
+            name: pickle-test-results
+            path: |
+              pickle_bool_*.pkl
+              pickle_class_*.pkl
+              pickle_dict_*.pkl
+              pickle_float_accuracy_*.pkl
+              pickle_float_*.pkl
+              pickle_func_*.pkl
+              pickle_instance_*.pkl
+              pickle_int_*.pkl
+              pickle_list_*.pkl
+              pickle_string_*.pkl 
+        #   git config user.name 'github-actions'
+        #   git config user.email 'github-actions@github.com'
+        #   git pull
+        #   git add *.pkl
+        #   git commit -am "Generated files"
+        #   git push
             
