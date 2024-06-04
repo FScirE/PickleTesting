@@ -27,10 +27,12 @@ def fibonacci(n):
 
 def get_os_suffix():
     return platform.system().lower()
+def get_python_version():
+    return platform.python_version().lower()
 
 class TestPickle(unittest.TestCase):
     def test_pickle_string(self):
-        data = 'test'
+        data = 'test/test%&!.,;'
         pickled_data = pickle.dumps(data)
         file_name = f'pickle_string{os.sep}{get_os_suffix()}.pkl'
         with open(file_name, 'wb') as f:
@@ -38,7 +40,7 @@ class TestPickle(unittest.TestCase):
         self.assertEqual(data, pickle.loads(pickled_data))
 
     def test_pickle_int(self):
-        data = 1
+        data = 44744
         pickled_data = pickle.dumps(data)
         file_name = f'pickle_int{os.sep}{get_os_suffix()}.pkl'
         with open(file_name, 'wb') as f:
@@ -62,7 +64,7 @@ class TestPickle(unittest.TestCase):
         self.assertEqual(data, pickle.loads(pickled_data))
     
     def test_pickle_dict(self):
-        data = {"a": 1, "b": 2}
+        data = {"a": 1, "b": 2, "c": {"d": 12, "e": 21}}
         pickled_data = pickle.dumps(data)
         file_name = f'pickle_dict{os.sep}{get_os_suffix()}.pkl'
         with open(file_name, 'wb') as f:
@@ -70,7 +72,7 @@ class TestPickle(unittest.TestCase):
         self.assertEqual(data, pickle.loads(pickled_data))
 
     def test_pickle_list(self):
-        data = [1, 2, 3]
+        data = [1, 2, "test,test/!", 3]
         pickled_data = pickle.dumps(data)
         file_name = f'pickle_list{os.sep}{get_os_suffix()}.pkl'
         with open(file_name, 'wb') as f:
@@ -85,7 +87,7 @@ class TestPickle(unittest.TestCase):
             f.write(pickled_data)
     
     def test_pickle_float(self):
-        data = 1.2
+        data = 3.21
         pickled_data = pickle.dumps(data)
         file_name = f'pickle_float{os.sep}{get_os_suffix()}.pkl'
         with open(file_name, 'wb') as f:
@@ -95,15 +97,31 @@ class TestPickle(unittest.TestCase):
     def test_pickle_func(self):
         data = fibonacci
         pickled_data = pickle.dumps(data)
-        file_name = f'pickle_func{os.sep}{get_os_suffix()}.pkl'
+        file_name = f'{os.sep}pickle_func{os.sep}{get_os_suffix()}.pkl'
         with open(file_name, 'wb') as f:
             f.write(pickled_data)
         self.assertEqual(data, pickle.loads(pickled_data))
 
     def test_pickle_float_accuracy(self):
-        data = 1/3
+        data = 1 / 597673
         pickled_data = pickle.dumps(data)
         file_name = f'pickle_float_accuracy{os.sep}{get_os_suffix()}.pkl'
+        with open(file_name, 'wb') as f:
+            f.write(pickled_data)
+        self.assertEqual(data, pickle.loads(pickled_data))
+
+    def test_pickle_tuple(self):
+        data = (1, 2, 3, 'hihi', 0.12345)
+        pickled_data = pickle.dumps(data)
+        file_name = f'pickle_tuple{os.sep}{get_os_suffix()}.pkl'
+        with open(file_name, 'wb') as f:
+            f.write(pickled_data)
+        self.assertEqual(data, pickle.loads(pickled_data))
+    
+    def test_pickle_complex(self):
+        data = complex(1, 2)
+        pickled_data = pickle.dumps(data)
+        file_name = f'pickle_complex{os.sep}{get_os_suffix()}.pkl' #<function python_version at 0x0000027EA5411620>
         with open(file_name, 'wb') as f:
             f.write(pickled_data)
         self.assertEqual(data, pickle.loads(pickled_data))
