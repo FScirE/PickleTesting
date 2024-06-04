@@ -1,0 +1,29 @@
+name: Pickle tester
+on: [push, pull_request]
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-13]
+        python-version: ['3.11']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python env
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{matrix.python-version}}
+          
+      - name: Install dependencies
+        run: |         
+          pip install --upgrade pip
+
+      - name: Run tests
+        run: |
+          python -m unittest pickle_consistency_test_check_assertion.py
+            

@@ -124,7 +124,7 @@ class TestPickle(unittest.TestCase):
     def test_pickle_complex(self):
         data = complex(11, 2)
         pickled_data = pickle.dumps(data)
-        file_name = f'{get_python_version()}{os.sep}pickle_complex{os.sep}{get_os_suffix()}.pkl' #<function python_version at 0x0000027EA5411620>
+        file_name = f'{get_python_version()}{os.sep}pickle_complex{os.sep}{get_os_suffix()}.pkl' 
         with open(file_name, 'wb') as f:
             f.write(pickled_data)
         self.assertEqual(data, pickle.loads(pickled_data))
