@@ -29,7 +29,9 @@ def get_os_suffix():
     return platform.system().lower()
     
 def get_python_version():
-    return platform.python_version().lower()
+    splitted = platform.python_version().split('.')
+    combined = splitted[0] + '.' + splitted[1]
+    return combined
 
 class TestPickle(unittest.TestCase):
     def test_pickle_string(self):
@@ -120,7 +122,7 @@ class TestPickle(unittest.TestCase):
         self.assertEqual(data, pickle.loads(pickled_data))
     
     def test_pickle_complex(self):
-        data = complex(1, 2)
+        data = complex(11, 2)
         pickled_data = pickle.dumps(data)
         file_name = f'{get_python_version()}{os.sep}pickle_complex{os.sep}{get_os_suffix()}.pkl' #<function python_version at 0x0000027EA5411620>
         with open(file_name, 'wb') as f:
