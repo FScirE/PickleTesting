@@ -33,7 +33,6 @@ dct = {
     'pickle_nested_structures': []
 }
 
-#Test
 
 def read_desired_pickle(name):
     for i in range(9, 12):
