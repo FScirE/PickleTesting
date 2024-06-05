@@ -137,6 +137,13 @@ class TestPickle(unittest.TestCase):
             f.write(pickled_data)
         self.assertEqual(data, pickle.loads(pickled_data))
 
+    def test_pickle_lambda(self):
+        data = lambda x: x + 1
+        pickled_data = pickle.dumps(data)
+        file_name = f'{get_python_version()}{os.sep}pickle_lambda{os.sep}{get_os_suffix()}.pkl'
+        with open(file_name, 'wb') as f:
+            f.write(pickled_data)
+        self.assertEqual(data, pickle.loads(pickled_data))
 
 def fibonacci(n):
     if n == 0:
@@ -145,7 +152,6 @@ def fibonacci(n):
         return 1
     else:
         return fibonacci(n - 1) + fibonacci(n - 2)
-
 
 if __name__=='__main__':
     unittest.main()

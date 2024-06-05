@@ -15,7 +15,9 @@ raw_dct = {
     'pickle_list': [],
     'pickle_string': [],
     'pickle_tuple': [],
-    'pickle_nested_structures': []
+    'pickle_nested_structures': [],
+    'pickle_lamdba': []
+
 }
 dct = {
     'pickle_bool': [],
@@ -30,7 +32,8 @@ dct = {
     'pickle_list': [],
     'pickle_string': [],
     'pickle_tuple': [],
-    'pickle_nested_structures': []
+    'pickle_nested_structures': [],
+    'pickle_lamdba': []
 }
 
 
@@ -145,6 +148,12 @@ class TestPickleConsistency(unittest.TestCase):
         # check loaded
         self.assertTrue(all(e[0] == dct['pickle_nested_structures'][0][0] for e in dct['pickle_nested_structures']))
 
+    def test_lambda(self):
+        read_desired_pickle('pickle_lamdba')
+        # check raw
+        self.assertTrue(all(e[0] == raw_dct['pickle_lamdba'][0][0] for e in raw_dct['pickle_lamdba']))
+        # check loaded
+        self.assertTrue(all(e[0] == dct['pickle_lamdba'][0][0] for e in dct['pickle_lamdba']))
 
 if __name__ == '__main__':
     unittest.main()
