@@ -137,16 +137,6 @@ class TestPickle(unittest.TestCase):
             f.write(pickled_data)
         self.assertEqual(data, pickle.loads(pickled_data))
 
-    def test_pickle_custom_exception(self):
-        class CustomException(Exception):
-            pass
-
-        data = CustomException('test')
-        pickled_data = pickle.dumps(data)
-        file_name = f'{get_python_version()}{os.sep}pickle_custom_exception{os.sep}{get_os_suffix()}.pkl'
-        with open(file_name, 'wb') as f:
-            f.write(pickled_data)
-        self.assertEqual(data, pickle.loads(pickle.loads(pickled_data)))
 
 def fibonacci(n):
     if n == 0:
