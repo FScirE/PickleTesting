@@ -14,7 +14,9 @@ raw_dct = {
     'pickle_int': [],
     'pickle_list': [],
     'pickle_string': [],
-    'pickle_tuple': []
+    'pickle_tuple': [],
+    'pickle_nested_structures': [],
+    'pickle_custom_exception': []
 }
 dct = {
     'pickle_bool': [],
@@ -28,7 +30,9 @@ dct = {
     'pickle_int': [],
     'pickle_list': [],
     'pickle_string': [],
-    'pickle_tuple': []
+    'pickle_tuple': [],
+    'pickle_nested_structures': [],
+    'pickle_custom_exception': []
 }
 
 #Test
@@ -136,7 +140,21 @@ class TestPickleConsistency(unittest.TestCase):
         self.assertTrue(all(e[0] == raw_dct['pickle_tuple'][0][0] for e in raw_dct['pickle_tuple']))
         # check loaded
         self.assertTrue(all(e[0] == dct['pickle_tuple'][0][0] for e in dct['pickle_tuple']))
-        
 
+    def test_nested_structures(self):
+        read_desired_pickle('pickle_nested_structures')
+        # check raw
+        self.assertTrue(all(e[0] == raw_dct['pickle_nested_structures'][0][0] for e in raw_dct['pickle_nested_structures']))
+        # check loaded
+        self.assertTrue(all(e[0] == dct['pickle_nested_structures'][0][0] for e in dct['pickle_nested_structures']))
+
+    def test_custom_exception(self):
+        read_desired_pickle('pickle_custom_exception')
+        # check raw
+        self.assertTrue(all(e[0] == raw_dct['pickle_custom_exception'][0][0] for e in raw_dct['pickle_custom_exception']))
+        # check loaded
+        self.assertTrue(all(e[0] == dct['pickle_custom_exception'][0][0] for e in dct['pickle_custom_exception']))
+
+        
 if __name__ == '__main__':
     unittest.main()
