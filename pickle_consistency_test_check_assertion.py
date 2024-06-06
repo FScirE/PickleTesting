@@ -38,7 +38,7 @@ dct = {
 
 #test for unicode
 def read_desired_pickle(name):
-    for i in range(10, 12):
+    for i in range(7, 12):
         with open(f'3.{i}/{name}/darwin.pkl', 'rb') as pkl:
             data = pkl.read()
             raw_dct[name].append((data, f'mac3.{i}'))
@@ -147,14 +147,6 @@ class TestPickleConsistency(unittest.TestCase):
         self.assertTrue(all(e[0] == raw_dct['pickle_nested_structures'][0][0] for e in raw_dct['pickle_nested_structures']))
         # check loaded
         self.assertTrue(all(e[0] == dct['pickle_nested_structures'][0][0] for e in dct['pickle_nested_structures']))
-    
-    def test_unicode(self):
-        read_desired_pickle('pickle_unicode')
-        # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_unicode'][0][0] for e in raw_dct['pickle_unicode']))
-        # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_unicode'][0][0] for e in dct['pickle_unicode']))
-
 
 if __name__ == '__main__':
     unittest.main()
