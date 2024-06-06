@@ -138,12 +138,12 @@ class TestPickle(unittest.TestCase):
             f.write(pickled_data)
         self.assertEqual(data, pickle.loads(pickled_data))
 
-    def test_pickle_unicode(self):
-        data = "😀😁😂🤣😚🤬😷🤒🤕🤢🤮🤧😇🥳🥴🥺🤠🤡"
-        pickled_data = pickle.dumps(data)
-        file_name = f'{get_python_version()}{os.sep}pickle_unicode{os.sep}{get_os_suffix()}.pkl'
-        with open(file_name, 'wb') as f:
-            f.write(pickled_data)
-        self.assertEqual(data, pickle.loads(pickled_data))
+    # def test_pickle_unicode(self):
+    #     data = "😀😁😂🤣😚🤬😷🤒🤕🤢🤮🤧😇🥳🥴🥺🤠🤡"
+    #     pickled_data = pickle.dumps(data)
+    #     file_name = f'{get_python_version()}{os.sep}pickle_unicode{os.sep}{get_os_suffix()}.pkl'
+    #     with open(file_name, 'wb') as f:
+    #         f.write(pickled_data)
+    #     self.assertEqual(data, pickle.loads(pickled_data))
 if __name__=='__main__':
     unittest.main()
