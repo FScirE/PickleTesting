@@ -8,8 +8,8 @@ This repository utilizes unit tests and GitHub Actions to test the 'pickle' modu
 - Activate the workflows in the Actions tab.
 - Run the 'clear_pkl.py' file to clear any old results.
 - Push the changes to origin (if there are no changes, just make a comment in some file to have something to push).
-- Monitor the results in the 'Pickle tester' workflow in the Actions tab. If any error occurs relating to pushing/pulling from the GitHub repo in the workflow, restart the failed processes.
-- Wait for all processes to complete.
+- Monitor the results in the 'Pickle tester' workflow in the Actions tab. If any errors occur relating to pushing/pulling from the GitHub repo in any of the jobs in the workflow, re-run the failed jobs until all are done (this is in need of improvement).
+- Wait for all jobs to complete.
 - Check the results from the 'Result comparison' workflow.
 
 If you need to push any changes to the repository without to running the workflows then disable them in the Actions tab.

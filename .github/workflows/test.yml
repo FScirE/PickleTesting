@@ -31,7 +31,8 @@ jobs:
         run: |
           git config user.name 'github-actions'
           git config user.email 'github-actions@github.com'
-          git pull --rebase
+          git fetch
+          git merge
           git add *.pkl
           git commit -am "Generated files"
           git push
