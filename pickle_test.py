@@ -3,6 +3,7 @@ import pickle
 import platform
 import os
 
+
 class class_to_test():
     def __init__(self, x = 0, y = 0) -> None:
         self.x = x
@@ -137,13 +138,12 @@ class TestPickle(unittest.TestCase):
             f.write(pickled_data)
         self.assertEqual(data, pickle.loads(pickled_data))
 
-def fibonacci(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fibonacci(n - 1) + fibonacci(n - 2)
-
+    def test_pickle_unicode(self):
+        data = "😀😁😂🤣😚🤬😷🤒🤕🤢🤮🤧😇🥳🥴🥺🤠🤡"
+        pickled_data = pickle.dumps(data)
+        file_name = f'{get_python_version()}{os.sep}pickle_unicode{os.sep}{get_os_suffix()}.pkl'
+        with open(file_name, 'wb') as f:
+            f.write(pickled_data)
+        self.assertEqual(data, pickle.loads(pickled_data))
 if __name__=='__main__':
     unittest.main()

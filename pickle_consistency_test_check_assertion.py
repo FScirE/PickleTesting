@@ -15,7 +15,8 @@ raw_dct = {
     'pickle_list': [],
     'pickle_string': [],
     'pickle_tuple': [],
-    'pickle_nested_structures': []
+    'pickle_nested_structures': [],
+    'pickle_unicode': []
 
 }
 dct = {
@@ -31,7 +32,8 @@ dct = {
     'pickle_list': [],
     'pickle_string': [],
     'pickle_tuple': [],
-    'pickle_nested_structures': []
+    'pickle_nested_structures': [],
+    'pickle_unicode': []
 }
 
 #test for py.8
@@ -145,6 +147,13 @@ class TestPickleConsistency(unittest.TestCase):
         self.assertTrue(all(e[0] == raw_dct['pickle_nested_structures'][0][0] for e in raw_dct['pickle_nested_structures']))
         # check loaded
         self.assertTrue(all(e[0] == dct['pickle_nested_structures'][0][0] for e in dct['pickle_nested_structures']))
+    
+    def test_unicode(self):
+        read_desired_pickle('pickle_unicode')
+        # check raw
+        self.assertTrue(all(e[0] == raw_dct['pickle_unicode'][0][0] for e in raw_dct['pickle_unicode']))
+        # check loaded
+        self.assertTrue(all(e[0] == dct['pickle_unicode'][0][0] for e in dct['pickle_unicode']))
 
 
 if __name__ == '__main__':
