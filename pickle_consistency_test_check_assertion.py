@@ -38,7 +38,7 @@ dct = {
 
 #test for py.8
 def read_desired_pickle(name):
-    for i in range(7, 12):
+    for i in range(10, 12):
         with open(f'3.{i}/{name}/darwin.pkl', 'rb') as pkl:
             data = pkl.read()
             raw_dct[name].append((data, f'mac3.{i}'))
