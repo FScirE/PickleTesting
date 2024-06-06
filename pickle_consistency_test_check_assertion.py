@@ -36,7 +36,7 @@ dct = {
     'pickle_unicode': []
 }
 
-#test for py.8
+#test for unicode
 def read_desired_pickle(name):
     for i in range(10, 12):
         with open(f'3.{i}/{name}/darwin.pkl', 'rb') as pkl:
