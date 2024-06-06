@@ -34,7 +34,7 @@ dct = {
     'pickle_nested_structures': []
 }
 
-
+#test for py.7
 def read_desired_pickle(name):
     for i in range(9, 12):
         with open(f'3.{i}/{name}/darwin.pkl', 'rb') as pkl:
