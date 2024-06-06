@@ -60,93 +60,119 @@ class TestPickleConsistency(unittest.TestCase):
     def test_pickle_bool(self):
         read_desired_pickle('pickle_bool')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_bool'][0][0] for e in raw_dct['pickle_bool']))
+        for e in raw_dct['pickle_bool']:
+            self.assertEqual(e[0], raw_dct['pickle_bool'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_bool'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_bool'][0][0] for e in dct['pickle_bool']))
+        for e in raw_dct['pickle_bool']:
+            self.assertEqual(e[0], dct['pickle_bool'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_bool'][0][1])
     
     def test_pickle_class(self):
         read_desired_pickle('pickle_class')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_class'][0][0] for e in raw_dct['pickle_class']))
+        for e in raw_dct['pickle_class']:
+            self.assertEqual(e[0], raw_dct['pickle_class'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_class'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_class'][0][0] for e in dct['pickle_class']))
+        for e in raw_dct['pickle_class']:
+            self.assertEqual(e[0], dct['pickle_class'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_class'][0][1])
     
     def test_pickle_complex(self):
         read_desired_pickle('pickle_complex')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_complex'][0][0] for e in raw_dct['pickle_complex']))
+        for e in raw_dct['pickle_complex']:
+            self.assertEqual(e[0], raw_dct['pickle_complex'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_complex'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_complex'][0][0] for e in dct['pickle_complex']))
+        for e in raw_dct['pickle_complex']:
+            self.assertEqual(e[0], dct['pickle_complex'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_complex'][0][1])
     
     def test_dict(self):
         read_desired_pickle('pickle_dict')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_dict'][0][0] for e in raw_dct['pickle_dict']))
+        for e in raw_dct['pickle_dict']:
+            self.assertEqual(e[0], raw_dct['pickle_dict'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_dict'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_dict'][0][0] for e in dct['pickle_dict']))
+        for e in raw_dct['pickle_dict']:
+            self.assertEqual(e[0], dct['pickle_dict'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_dict'][0][1])
     
     def test_float(self):
         read_desired_pickle('pickle_float')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_float'][0][0] for e in raw_dct['pickle_float']))
+        for e in raw_dct['pickle_float']:
+            self.assertEqual(e[0], raw_dct['pickle_float'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_float'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_float'][0][0] for e in dct['pickle_float']))
+        for e in raw_dct['pickle_float']:
+            self.assertEqual(e[0], dct['pickle_float'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_float'][0][1])
     
     def test_float_accuracy(self):
         read_desired_pickle('pickle_float_accuracy')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_float_accuracy'][0][0] for e in raw_dct['pickle_float_accuracy']))
+        for e in raw_dct['pickle_float_accuracy']:
+            self.assertEqual(e[0], raw_dct['pickle_float_accuracy'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_float_accuracy'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_float_accuracy'][0][0] for e in dct['pickle_float_accuracy']))
+        for e in raw_dct['pickle_float_accuracy']:
+            self.assertEqual(e[0], dct['pickle_float_accuracy'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_float_accuracy'][0][1])
     
     def test_func(self):
         read_desired_pickle('pickle_func')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_func'][0][0] for e in raw_dct['pickle_func']))
+        for e in raw_dct['pickle_func']:
+            self.assertEqual(e[0], raw_dct['pickle_func'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_func'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_func'][0][0] for e in dct['pickle_func']))
+        for e in raw_dct['pickle_func']:
+            self.assertEqual(e[0], dct['pickle_func'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_func'][0][1])
 
     def test_instance(self):
         read_desired_pickle('pickle_instance')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_instance'][0][0] for e in raw_dct['pickle_instance']))
+        for e in raw_dct['pickle_instance']:
+            self.assertEqual(e[0], raw_dct['pickle_instance'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_instance'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_instance'][0][0] for e in dct['pickle_instance']))
+        for e in raw_dct['pickle_instance']:
+            self.assertEqual(e[0], dct['pickle_instance'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_instance'][0][1])
     
     def test_int(self):
         read_desired_pickle('pickle_int')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_int'][0][0] for e in raw_dct['pickle_int']))
+        for e in raw_dct['pickle_int']:
+            self.assertEqual(e[0], raw_dct['pickle_int'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_int'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_int'][0][0] for e in dct['pickle_int']))
+        for e in raw_dct['pickle_int']:
+            self.assertEqual(e[0], dct['pickle_int'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_int'][0][1])
     
     def test_list(self):
         read_desired_pickle('pickle_list')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_list'][0][0] for e in raw_dct['pickle_list']))
+        for e in raw_dct['pickle_list']:
+            self.assertEqual(e[0], raw_dct['pickle_list'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_list'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_list'][0][0] for e in dct['pickle_list']))
+        for e in raw_dct['pickle_list']:
+            self.assertEqual(e[0], dct['pickle_list'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_list'][0][1])
     
     def test_string(self):
         read_desired_pickle('pickle_string')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_string'][0][0] for e in raw_dct['pickle_string']))
+        for e in raw_dct['pickle_string']:
+            self.assertEqual(e[0], raw_dct['pickle_string'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_string'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_string'][0][0] for e in dct['pickle_string']))
+        for e in raw_dct['pickle_string']:
+            self.assertEqual(e[0], dct['pickle_string'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_string'][0][1])
     
     def test_tuple(self):
         read_desired_pickle('pickle_tuple')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_tuple'][0][0] for e in raw_dct['pickle_tuple']))
+        for e in raw_dct['pickle_tuple']:
+            self.assertEqual(e[0], raw_dct['pickle_tuple'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_tuple'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_tuple'][0][0] for e in dct['pickle_tuple']))
+        for e in raw_dct['pickle_tuple']:
+            self.assertEqual(e[0], dct['pickle_tuple'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_tuple'][0][1])
 
     def test_nested_structures(self):
         read_desired_pickle('pickle_nested_structures')
         # check raw
-        self.assertTrue(all(e[0] == raw_dct['pickle_nested_structures'][0][0] for e in raw_dct['pickle_nested_structures']))
+        for e in raw_dct['pickle_nested_structures']:
+            self.assertEqual(e[0], raw_dct['pickle_nested_structures'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + raw_dct['pickle_nested_structures'][0][1])
         # check loaded
-        self.assertTrue(all(e[0] == dct['pickle_nested_structures'][0][0] for e in dct['pickle_nested_structures']))
+        for e in raw_dct['pickle_nested_structures']:
+            self.assertEqual(e[0], dct['pickle_nested_structures'][0][0], msg='\nUsing (OS+PythonVer): ' + e[1] + ' compared with ' + dct['pickle_nested_structures'][0][1])
 
 if __name__ == '__main__':
     unittest.main()
