@@ -1,5 +1,10 @@
-name: Pickle tester
-on: [push, pull_request]
+name: Result comparison
+on:
+  workflow_run:
+    workflows: ["Pickle tester"]
+    branches: [main]
+    types: 
+      - completed
 permissions:
   contents: write
 jobs:
@@ -7,7 +12,7 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-13]
+        os: [ubuntu-latest]
         python-version: ['3.11']
     
     steps:
